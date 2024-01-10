@@ -24,15 +24,12 @@ module "workspace" {
   execution_mode = each.value.execution_mode
   description = each.value.description
   organization_name = each.value.organization_name
-  project_id = module.project["firstproject"].id
+  project_id = each.value.project_id
 
   vcs_repo = {
-    github_app_installation_id = data.tfe_github_app_installation.app.id
+    github_app_installation_id = data.tfe_github_app_installation.app.installation_id
     identifier = each.value.vcs_repo_identifier
   }
 }
 
-moved {
-  from = module.project["secondproject"]
-  to = module.project["firstproject"]
-}
+
