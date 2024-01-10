@@ -13,8 +13,16 @@ locals {
             description = "firstspace"
             organization_name = var.organization_name
             project_id = module.project["firstproject"].id
-            vcs_repo_identifier = "mkdirrepo/terraform-starter"
+            vcs_repo_identifier = "${var.github_organization_name}/terraform-starter"
         }
+        "terraform-github" = {
+            description = "Automation workspace GitHub "
+            execution_mode = "local"
+            project_id = module.project["firstproject"].id
+            vcs_repo_identifier = "${var.github_organization_name}/terraform-github"
+    }
       
     }
+
+
 }
