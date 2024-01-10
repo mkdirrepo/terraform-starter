@@ -9,7 +9,7 @@ locals {
 
     workspace = {
         "firstspace"  = {
-            execution_mode = "local"
+            execution_mode = "remote"
             description = "firstspace"
             organization_name = var.organization_name
             project_id = module.project["firstproject"].id

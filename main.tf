@@ -26,6 +26,7 @@ module "workspace" {
 
   vcs_repo = {
     github_app_installation_id = var.github_app_installation_id
+    identifier = each.value.vcs_repo_identifier
   }
 
 }
