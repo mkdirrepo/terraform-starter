@@ -1,6 +1,4 @@
-data "tfe_github_app_installation" "app" {
-	installation_id = var.github_app_installation_id
-}
+
 
 module "project" {
   source  = "app.terraform.io/ryanff/project/tfe"
@@ -27,7 +25,7 @@ module "workspace" {
   project_id = each.value.project_id
 
   vcs_repo = {
-    github_app_installation_id = data.tfe_github_app_installation.app.installation_id
+    github_app_installation_id = var.github_app_installation_id
     identifier = each.value.vcs_repo_identifier
   }
 }
