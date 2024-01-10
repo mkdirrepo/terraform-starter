@@ -20,7 +20,7 @@ locals {
             execution_mode = "local"
             project_id = module.project["firstproject"].id
             vcs_repo_identifier = "${var.github_organization_name}/terraform-github"
-            organization_name = each.value.organization_name
+            organization_name = var.organization_name
     }
       
     }
