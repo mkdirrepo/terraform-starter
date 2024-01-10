@@ -1,3 +1,7 @@
+data "tfe_github_app_installation" "app" {
+	installation_id = var.github_app_installation_id
+}
+
 module "project" {
   source  = "app.terraform.io/ryanff/project/tfe"
   version = "1.0.0"
@@ -20,8 +24,15 @@ module "workspace" {
   execution_mode = each.value.execution_mode
   description = each.value.description
   organization_name = each.value.organization_name
-  project_id = each.value.project_id
+  project_id = module.project["firstproject"].id
+
+  vcs_repo = {
+    github_app_installation_id = data.tfe_github_app_installation.app.id
+    identifier = each.value.vcs_repo_identifier
+  }
 }
 
-
-
+moved {
+  from = module.project["secondproject"]
+  to = module.project["firstproject"]
+}
