@@ -15,7 +15,7 @@ module "project" {
 module "workspace" {
   source  = "app.terraform.io/ryanff/workspace/tfe"
   version = "1.0.0"
-  # insert required variables here
+  #insert required variables here
 
   for_each = local.workspace
   name = each.key
@@ -26,8 +26,8 @@ module "workspace" {
 
   vcs_repo = {
     github_app_installation_id = var.github_app_installation_id
-    identifier = each.value.vcs_repo_identifier
   }
+
 }
 
 
