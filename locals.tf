@@ -36,7 +36,7 @@ locals {
               "aws-networking" = {
             description = "Automation workspace GitHub "
             execution_mode = "remote"
-            project_id = module.project["firstprojectid"].id
+            project_id = module.project["firstproject"].id
             vcs_repo_identifier = "${var.github_organization_name}/aws-networking"
             organization_name = var.organization_name
     }
