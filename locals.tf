@@ -17,7 +17,7 @@ locals {
         }
         "terraform-github" = {
             description = "Automation workspace GitHub "
-            execution_mode = "local"
+            execution_mode = "remote"
             project_id = module.project["firstproject"].id
             vcs_repo_identifier = "${var.github_organization_name}/terraform-github"
             organization_name = var.organization_name
