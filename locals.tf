@@ -27,10 +27,17 @@ locals {
             organization_name = var.organization_name
     }
               "terraform-aws-networking" = {
-            description = "Automation workspace GitHub "
+            description = "MODULE workspace GitHub "
             execution_mode = "remote"
             project_id = module.project["aws-modules"].id
             vcs_repo_identifier = "${var.github_organization_name}/terraform-aws-networking"
+            organization_name = var.organization_name
+    }
+              "aws-networking" = {
+            description = "Automation workspace GitHub "
+            execution_mode = "remote"
+            project_id = module.project["firstprojectid"].id
+            vcs_repo_identifier = "${var.github_organization_name}/aws-networking"
             organization_name = var.organization_name
     }
     }
